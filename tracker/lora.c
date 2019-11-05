@@ -881,7 +881,7 @@ void CheckForPacketOnListeningChannels(struct TGPS *GPS)
 #						endif	
 						else
 						{
-							printf("Unknown message %02Xh\n", Message[0]);
+							printf("Unknown message %s\n", Message);
 						}
 					}
 				}

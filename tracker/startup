@@ -2,9 +2,10 @@
 cd /home/pi/pits/tracker
 #./send_aprs &
 echo none | sudo tee /sys/class/leds/led0/trigger
+ls
 echo 1 | sudo tee /sys/class/leds/led0/brightness
 sudo /home/pi/pits/sensor/startup_sensor &
-#sudo ./camera &
+sudo ./camera &
 # sleep 30
 # sudo python3 gopro.py &
 # python3 sensors.py &
