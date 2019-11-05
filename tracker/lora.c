@@ -602,7 +602,7 @@ int UplinkTimeToSendOnThisChannel(int LoRaChannel, struct TGPS *GPS)
 		long CycleSeconds;
 		
 		CycleSeconds = GPS->SecondsInDay % Config.LoRaDevices[LoRaChannel].UplinkCycle;
-	
+		printf ("Time: %d\n", CycleSeconds);
 		if (CycleSeconds < Config.LoRaDevices[LoRaChannel].UplinkPeriod)
 		{
 			return 0;
@@ -1333,9 +1333,9 @@ void *LoRaLoop(void *some_void_ptr)
 								  Config.LoRaDevices[LoRaChannel].ImplicitOrExplicit,
 								  Config.LoRaDevices[LoRaChannel].ErrorCoding,
 								  Config.LoRaDevices[LoRaChannel].Bandwidth,
-								  Config.LoRaDevices[LoRaChannel]. SpreadingFactor,
+								  Config.LoRaDevices[LoRaChannel].SpreadingFactor,
 								  Config.LoRaDevices[LoRaChannel].LowDataRateOptimize);
-				// printf("Reset after Uplink Mode\n");
+				 printf("Reset after Uplink Mode\n");
 			}
 
 			// Calling mode needed ?
