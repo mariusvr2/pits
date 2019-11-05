@@ -23,10 +23,10 @@ baseURL += "&field6=" + visible
 baseURL += "&field7=" + ir
 urllib2.urlopen(baseURL).read()
 
-f=open("/home/pi/sensor/sensor.txt","w+")
+f=open("/home/pi/pits/sensor/sensor.txt","w+")
 f.write(temperature + "," + humidity + "," + pressure + "," + ozone + "," + uv + "," + visible + "," + ir)
 f.close()
 
-f=open("/home/pi/sensor/log.txt","a+")
+f=open("/home/pi/pits/sensor/log.txt","a+")
 f.write(temperature + "," + humidity + "," + pressure + "," + ozone + "," + uv + "," + visible + "," + ir)
 f.close()
