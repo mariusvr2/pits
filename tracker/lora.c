@@ -517,7 +517,7 @@ void SendLoRaImage(int LoRaChannel, int RTTYMode)
 			AddImagePacketToRecentList(Channel, Config.Channels[Channel].SSDVImageNumber, Config.Channels[Channel].SSDVPacketNumber);
 			
 			//printf("LORA%d: SSDV image %d packet %d of %d %s\r\n", LoRaChannel, Config.Channels[Channel].SSDVImageNumber, Config.Channels[Channel].SSDVPacketNumber+1, Config.Channels[Channel].SSDVNumberOfPackets, ResentPacket ? "** RESEND **" : "");
-			printf("%d:%d-%s,", LoRaChannel, Config.Channels[Channel].SSDVImageNumber, Config.Channels[Channel].SSDVPacketNumber+1, Config.Channels[Channel].SSDVNumberOfPackets, ResentPacket ? "** RESEND **" : "");
+			printf("%d:image%d%d-%d %s,", LoRaChannel, Config.Channels[Channel].SSDVImageNumber, Config.Channels[Channel].SSDVPacketNumber+1, Config.Channels[Channel].SSDVNumberOfPackets, ResentPacket ? "** RESEND **" : "");
 			
 			if (RTTYMode)
 			{
