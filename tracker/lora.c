@@ -602,7 +602,7 @@ int UplinkTimeToSendOnThisChannel(int LoRaChannel, struct TGPS *GPS)
 		long CycleSeconds;
 		
 		CycleSeconds = GPS->SecondsInDay % Config.LoRaDevices[LoRaChannel].UplinkCycle;
-		printf ("Time: %ld\n", CycleSeconds);
+		printf ("system time: %s GPS Time: %ld\n", time(),CycleSeconds);
 		if (CycleSeconds < Config.LoRaDevices[LoRaChannel].UplinkPeriod)
 		{
 			return 0;
