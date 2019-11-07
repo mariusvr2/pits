@@ -596,20 +596,24 @@ int TDMTimeToSendOnThisChannel(int LoRaChannel, struct TGPS *GPS)
 	
 int UplinkTimeToSendOnThisChannel(int LoRaChannel, struct TGPS *GPS)
 {
-	// Can't use time till we have it
-	if (GPS->Satellites > 0)
-	{
-		long CycleSeconds;
-		
-		CycleSeconds = GPS->SecondsInDay % Config.LoRaDevices[LoRaChannel].UplinkCycle;
-		printf ("system time: %s GPS Time: %ld\n", time(),CycleSeconds);
-		if (CycleSeconds < Config.LoRaDevices[LoRaChannel].UplinkPeriod)
-		{
-			return 0;
-		}
-	}
-	
-	return 1;
+        // Can't use time till we have it
+        if (GPS->Satellites > 0)
+        {
+                long CycleSeconds;
+                    time_t current_time;
+    char* c_time_string;
+
+                CycleSeconds = GPS->SecondsInDay % Config.LoRaDevices[LoRaChannel].UplinkCycle;
+                current_time = time(NULL);
+                c_time_string = ctime(&current_time);
+                printf ("system time: %s GPS Time: %ld\n", c_time_string ,CycleSeconds);
+                if (current_time->tm_sec < Config.LoRaDevices[LoRaChannel].UplinkPeriod)
+                {
+                        return 0;
+                }
+        }
+
+        return 1;
 }
 	
 int TimeToSendOnThisChannel(int LoRaChannel, struct TGPS *GPS)
